@@ -82,9 +82,15 @@ Dodano endpoint `/api/users/:id/export`. Zdecydowano o streamowaniu CSV zamiast 
   - naprawiono nietrywialny błąd i wniosek może się powtórzyć w przyszłości,
   - odkryto pułapkę, ograniczenie narzędzia/biblioteki lub nieintuicyjne zachowanie systemu,
   - podjęto decyzję architektoniczną, którą warto uzasadnić na przyszłość,
-  - użytkownik poprawił podejście agenta i warto to zapamiętać na przyszłe sesje.
+  - użytkownik poprawił podejście agenta i warto to zapamiętać na przyszłe sesje — zapisz wniosek **od razu po korekcie**, zanim przejdziesz do kolejnego kroku, nie na koniec sesji.
 - Nie zapisuj w lekcjach rzeczy wynikających prosto z kodu (można je odtworzyć przez przeczytanie kodu) — tylko to, co nieoczywiste i warte zapamiętania.
 - Przed rozpoczęciem pracy w obszarze, którego mogą dotyczyć istniejące lekcje, **sprawdź `.ai/lessons.md`**, aby nie powtarzać tych samych błędów.
+
+## 4. Planowanie i weryfikacja zmian
+
+- Zadanie nietrywialne (nowa funkcja, zmiana architektury, zmiana obejmująca wiele plików) zacznij od planu, nie od razu od implementacji. Jeśli w trakcie realizacji plan się nie sprawdza, wróć do planowania i popraw go, zamiast forsować pierwotne podejście.
+- Przy większych lub ryzykownych zmianach rozważ zlecenie przeglądu planu albo diffu jako osobne, niezależne zadanie (np. innemu agentowi/subagentowi) — łatwiej wychwycić problem z pozycji recenzenta niż autora.
+- Przed uznaniem zadania za zakończone zweryfikuj zmiany: przejrzyj diff, uruchom testy/lint, i w razie wątpliwości skonfrontuj rozwiązanie krytycznie (np. „sprawdź, czy to naprawdę elegancki sposób, czy tylko łatka”) zanim powstanie commit/PR.
 
 ## Reguły obowiązkowe — podsumowanie
 
@@ -94,3 +100,5 @@ Dodano endpoint `/api/users/:id/export`. Zdecydowano o streamowaniu CSV zamiast 
 4. Zakończenie zadania → `Status: done` w nagłówku pliku runs; jeśli było powiązane ze specyfikacją, przenieś ją do `implemented/`.
 5. Nietrywialny wniosek/pułapka → zapis w `.ai/lessons.md` (i ewentualnie w `.ai/lessons/`).
 6. Wznowienie zadania → najpierw przeczytaj odpowiadający plik w `.ai/runs/`.
+7. Zadanie złożone → zacznij od planu; gdy plan przestaje działać, re-planuj, a nie forsuj dalej.
+8. Przed zakończeniem zadania → zweryfikuj zmiany (diff, testy/lint, krytyczne spojrzenie), zanim uznasz je za gotowe.
